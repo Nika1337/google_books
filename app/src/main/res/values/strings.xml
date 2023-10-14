@@ -3,4 +3,5 @@
     <string name="loading_failed">Failed to load</string>
     <string name="retry">Retry</string>
     <string name="google_books">Google Books</string>
+    <string name="search_icon">Search Icon</string>
 </resources>
