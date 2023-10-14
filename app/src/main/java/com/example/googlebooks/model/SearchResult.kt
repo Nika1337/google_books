@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SearchResult(
     @SerialName("items")
-    val books: List<DetailedBook>
+    val books: List<Book>
 )
 

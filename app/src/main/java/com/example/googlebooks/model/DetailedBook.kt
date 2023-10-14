@@ -8,27 +8,52 @@ data class DetailedBook(
     @SerialName("id")
     val id: String,
     @SerialName("volumeInfo")
-    val volumeInfo: VolumeInfo,
+    val volumeInfo: DetailedVolumeInfo,
+    @SerialName("saleInfo")
+    val saleInfo: SaleInfo,
+
 )
 
 @Serializable
-data class VolumeInfo(
+data class DetailedVolumeInfo(
     @SerialName("title")
     val title: String,
     @SerialName("authors")
-    val authors: List<String>,
+    val authors: List<String>? = null,
     @SerialName("publishedDate")
     val publishedDate: String,
     @SerialName("description")
-    val description: String,
+    val description: String? = null,
+    @SerialName("pageCount")
+    val pageCount: Int,
+    @SerialName("mainCategory")
+    val mainCategory: String? = null,
+    @SerialName("categories")
+    val categories: List<String>,
+    @SerialName("averageRating")
+    val averageRating: Double? = null,
+    @SerialName("ratingsCount")
+    val ratingsCount: Int? = null,
     @SerialName("language")
     val language: String,
     @SerialName("imageLinks")
-    val imageLinks: ImageLinks
+    val imageLinks: DetailedImageLinks
 )
 
 @Serializable
-data class ImageLinks(
+data class DetailedImageLinks(
+    @SerialName("smallThumbnail")
+    val smallThumbnail: String,
     @SerialName("thumbnail")
     val thumbnail: String
+)
+
+@Serializable
+data class SaleInfo(
+    @SerialName("country")
+    val country: String,
+    @SerialName("saleability")
+    val saleability: String,
+    @SerialName("isEbook")
+    val isEbook: Boolean
 )
