@@ -10,6 +10,7 @@ Main Takeaways of this app:
 - Domain Layer
 - Architecture
 - Dependency Injection
+- Unit Testing
 
 ## Screenshots
 ### Compact Width
@@ -37,6 +38,7 @@ Package [`com.example.googlebooks`](app/src/main/java/com/example/googlebooks)
 [`MainActivity`](app/src/main/java/com/example/googlebooks/MainActivity.kt) is the application's entry point. Only dynamic navigation is used. [GoogleBooksHomeScreen](app/src/main/java/com/example/googlebooks/ui/screens/books/GoogleBooksHomeScreen.kt) is the default screen. all screens share the same viewmodel [GoogleBooksViewModel](app/src/main/java/com/example/googlebooks/ui/screens/GoogleBooksViewModel.kt).
 
 ### Need to Revisit
+- Response of API consists of description, which is in html, which needs to be parsed and displayed properly
 - Better UI could be designed, my designing skills are not the best
 - Paging could be added
 - BookDetailScreen could show my details, or another screen could be added for details
