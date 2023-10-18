@@ -13,16 +13,16 @@ Main Takeaways of this app:
 ## Screenshots
 ### Compact Width
 <p style=float:left">
-  <img src="HomeScreen.jpg" width="200" />
-  <img src="DetailScreen.jpg" width="200" />
-  <img src="Search.jpg" width="200" />
+  <img src="screenshots/HomeScreen.jpg" width="200" />
+  <img src="screenshots/DetailScreen.jpg" width="200" />
+  <img src="screenshots/Search.jpg" width="200" />
 </p>
 
 ### Medium Width
 <p style=float:left">
-  <img src="Extended_NoBookChosen.jpg" width="400" />
-  <img src="Extended_DetailScreen.jpg" width="400" />
-  <img src="Extended_Search.jpg|400" width="400" />
+  <img src="screenshots/Extended_NoBookChosen.jpg" width="400" />
+  <img src="screenshots/Extended_DetailScreen.jpg" width="400" />
+  <img src="screenshots/Extended_Search.jpg|400" width="400" />
 </p>
 
 ## Features
