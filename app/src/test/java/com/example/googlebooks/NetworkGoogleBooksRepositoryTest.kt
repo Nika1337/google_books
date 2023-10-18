@@ -1,6 +1,8 @@
-package com.example.googlebooks.fake
+package com.example.googlebooks
 
 import com.example.googlebooks.data.NetworkGoogleBooksRepository
+import com.example.googlebooks.fake.FakeDataSource
+import com.example.googlebooks.fake.FakeGoogleBooksApiService
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -12,7 +14,7 @@ class NetworkGoogleBooksRepositoryTest {
             val repository = NetworkGoogleBooksRepository(
                 googleBooksApiService = FakeGoogleBooksApiService()
             )
-            assertEquals(FakeDataSource.searchResult, repository.getBooks(""))
+            assertEquals(FakeDataSource.searchResultApiModel, repository.getBooks(""))
         }
 
     @Test
@@ -31,9 +33,12 @@ class NetworkGoogleBooksRepositoryTest {
             val repository = NetworkGoogleBooksRepository(
                 googleBooksApiService = FakeGoogleBooksApiService()
             )
-            val firstExpectedBook = FakeDataSource.booksList[0]
-            val secondExpectedBook = FakeDataSource.booksList[1]
-            val thirdExpectedBook = FakeDataSource.booksList[2]
+            val firstExpectedBook = FakeDataSource.convertBookApiModelToDetailedBookApiModel(
+                FakeDataSource.bookApiModelList[0])
+            val secondExpectedBook = FakeDataSource.convertBookApiModelToDetailedBookApiModel(
+                FakeDataSource.bookApiModelList[1])
+            val thirdExpectedBook = FakeDataSource.convertBookApiModelToDetailedBookApiModel(
+                FakeDataSource.bookApiModelList[2])
             assertEquals(firstExpectedBook, repository.getBook(firstExpectedBook.id))
             assertEquals(secondExpectedBook, repository.getBook(secondExpectedBook.id))
             assertEquals(thirdExpectedBook, repository.getBook(thirdExpectedBook.id))

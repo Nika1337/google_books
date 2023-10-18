@@ -1,5 +1,7 @@
 package com.example.googlebooks.data
 
+import com.example.googlebooks.domain.GetFormattedBooksUseCase
+import com.example.googlebooks.domain.GetFormattedDetailedBookUseCase
 import com.example.googlebooks.network.GoogleBooksApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -9,7 +11,8 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
 interface AppContainer {
-    val googleBooksRepository: GoogleBooksRepository
+    val getFormattedBooksUseCase: GetFormattedBooksUseCase
+    val getFormattedDetailedBookUseCase: GetFormattedDetailedBookUseCase
 }
 
 class DefaultAppContainer : AppContainer {
@@ -31,7 +34,13 @@ class DefaultAppContainer : AppContainer {
     }
 
 
-    override val googleBooksRepository: GoogleBooksRepository by lazy {
+    private val googleBooksRepository: GoogleBooksRepository by lazy {
         NetworkGoogleBooksRepository(retrofitService)
+    }
+    override val getFormattedBooksUseCase: GetFormattedBooksUseCase by lazy {
+        GetFormattedBooksUseCase(googleBooksRepository =  googleBooksRepository)
+    }
+    override val getFormattedDetailedBookUseCase: GetFormattedDetailedBookUseCase by lazy {
+        GetFormattedDetailedBookUseCase(googleBooksRepository = googleBooksRepository)
     }
 }

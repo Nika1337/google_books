@@ -1,4 +1,4 @@
-package com.example.googlebooks.ui.screens
+package com.example.googlebooks.ui.screens.books
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -20,7 +20,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,7 +42,9 @@ import com.example.googlebooks.ui.theme.GoogleBooksTheme
 
 @Composable
 fun GoogleBooksTopAppBar(
-    onSearchClicked: (String) -> Unit,
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onSearchClicked: () -> Unit,
     modifier: Modifier = Modifier,
     height: Dp = 64.dp
 ) {
@@ -60,6 +61,8 @@ fun GoogleBooksTopAppBar(
         }
         SearchWidgetState.OPENED -> {
             SearchAppBar(
+                query = query,
+                onQueryChange = onQueryChange,
                 onSearchClicked = onSearchClicked,
                 onCloseClicked = {
                     searchWidgetState = SearchWidgetState.CLOSED
@@ -98,10 +101,7 @@ fun DefaultTopAppBar(
                 }
             }
         },
-        modifier = modifier,
-        colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.onPrimary
-        )
+        modifier = modifier
     )
 }
 
@@ -119,22 +119,20 @@ fun GoogleBooksBranding(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchAppBar(
-    onSearchClicked: (String) -> Unit,
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onSearchClicked: () -> Unit,
     onCloseClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var text by rememberSaveable {
-        mutableStateOf("")
-    }
     val focusManager = LocalFocusManager.current
     Surface(
         modifier = modifier
             .fillMaxWidth(),
-        color = MaterialTheme.colorScheme.onPrimary
     ) {
         TextField(
-            value = text,
-            onValueChange = { text = it },
+            value = query,
+            onValueChange = { onQueryChange(it) },
             modifier = Modifier
                 .fillMaxWidth(),
             placeholder = {
@@ -150,7 +148,7 @@ fun SearchAppBar(
             leadingIcon = {
                 IconButton(
                     onClick = {
-                        onSearchClicked(text)
+                        onSearchClicked()
                     }
                 ) {
                     Icon(
@@ -162,8 +160,8 @@ fun SearchAppBar(
             trailingIcon = {
                 IconButton(
                     onClick = {
-                        if (text.isNotEmpty()) {
-                            text = ""
+                        if (query.isNotEmpty()) {
+                            onQueryChange("")
                         } else {
                             onCloseClicked()
                         }
@@ -182,7 +180,7 @@ fun SearchAppBar(
             ),
             keyboardActions = KeyboardActions(
                 onSearch = {
-                    onSearchClicked(text)
+                    onSearchClicked()
                     focusManager.clearFocus()
                 }
             ),
@@ -212,8 +210,10 @@ fun SearchTopAppBarPreview() {
     GoogleBooksTheme {
         Surface {
             SearchAppBar(
+                query = "",
+                onQueryChange = {},
                 onSearchClicked = {},
-                onCloseClicked = { },
+                onCloseClicked = {},
                 modifier = Modifier.height(56.dp)
             )
         }

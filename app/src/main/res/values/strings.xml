@@ -5,4 +5,10 @@
     <string name="google_books">Google Books</string>
     <string name="search_icon">Search Icon</string>
     <string name="search">Search</string>
+    <string name="loading">Loading</string>
+    <string name="default_book_test">https://books.google.com/books/content?id=dK7HyUpESUcC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;imgtk=AFLRE705OvxnmzyqJV5SHMggFAa3ir6A4D3NURoBP1cDQatq9aDH-nPqYoj2TQ6l5_EezuiGZiLYsOvYpenwq1Pq48RSWJ7RDmWc_nEQMxkFkCMtAMO_vimJmhrCiRt-pIZmpQMm6JvB&amp;source=gbs_api</string>
+    <string name="no_description_available">No description available</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="book_thumbnail">Book Thumbnail</string>
+    <string name="no_book_selected">No Book Selected</string>
 </resources>

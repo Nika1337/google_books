@@ -1,12 +1,12 @@
 package com.example.googlebooks.data
 
-import com.example.googlebooks.model.Book
-import com.example.googlebooks.model.SearchResult
+import com.example.googlebooks.model.api.DetailedBookApiModel
+import com.example.googlebooks.model.api.SearchResultApiModel
 import com.example.googlebooks.network.GoogleBooksApiService
 
 interface GoogleBooksRepository {
-    suspend fun getBooks(query: String): SearchResult
-    suspend fun getBook(id: String): Book?
+    suspend fun getBooks(query: String): SearchResultApiModel
+    suspend fun getBook(id: String): DetailedBookApiModel?
 }
 
 class NetworkGoogleBooksRepository(

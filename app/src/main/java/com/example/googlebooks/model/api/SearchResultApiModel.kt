@@ -1,11 +1,11 @@
-package com.example.googlebooks.model
+package com.example.googlebooks.model.api
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class SearchResult(
+data class SearchResultApiModel(
     @SerialName("items")
-    val books: List<Book>
+    val books: List<BookApiModel> = listOf()
 )
 

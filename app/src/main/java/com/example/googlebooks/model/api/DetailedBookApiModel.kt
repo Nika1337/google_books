@@ -1,21 +1,20 @@
-package com.example.googlebooks.model
+package com.example.googlebooks.model.api
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class DetailedBook(
+data class DetailedBookApiModel(
     @SerialName("id")
     val id: String,
     @SerialName("volumeInfo")
-    val volumeInfo: DetailedVolumeInfo,
+    val volumeInfo: DetailedVolumeInfoApiModel,
     @SerialName("saleInfo")
-    val saleInfo: SaleInfo,
-
-)
+    val saleInfo: SaleInfoApiModel,
+    )
 
 @Serializable
-data class DetailedVolumeInfo(
+data class DetailedVolumeInfoApiModel(
     @SerialName("title")
     val title: String,
     @SerialName("authors")
@@ -29,7 +28,7 @@ data class DetailedVolumeInfo(
     @SerialName("mainCategory")
     val mainCategory: String? = null,
     @SerialName("categories")
-    val categories: List<String>,
+    val categories: List<String> = listOf(),
     @SerialName("averageRating")
     val averageRating: Double? = null,
     @SerialName("ratingsCount")
@@ -37,19 +36,22 @@ data class DetailedVolumeInfo(
     @SerialName("language")
     val language: String,
     @SerialName("imageLinks")
-    val imageLinks: DetailedImageLinks
+    val imageLinks: DetailedImageLinksApiModel? = null
 )
 
 @Serializable
-data class DetailedImageLinks(
+data class DetailedImageLinksApiModel(
     @SerialName("smallThumbnail")
     val smallThumbnail: String,
     @SerialName("thumbnail")
-    val thumbnail: String
-)
+    private val thumbnail: String
+) {
+    val httpsThumbnail : String
+        get() = thumbnail.replace("http", "https")
+}
 
 @Serializable
-data class SaleInfo(
+data class SaleInfoApiModel(
     @SerialName("country")
     val country: String,
     @SerialName("saleability")

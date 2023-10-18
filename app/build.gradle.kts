@@ -62,7 +62,10 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
-    // coil
+    // Window State
+    implementation("androidx.compose.material3:material3-window-size-class")
+
+    // Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
     implementation("io.coil-kt:coil-gif:2.4.0")
 
