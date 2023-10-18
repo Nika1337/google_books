@@ -9,6 +9,7 @@ Main Takeaways of this app:
 - Adaptive layout for mobile, tablets and foldables
 - Domain Layer
 - Architecture
+- Dependency Injection
 
 ## Screenshots
 ### Compact Width
