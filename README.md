@@ -12,16 +12,18 @@ Main Takeaways of this app:
 
 ## Screenshots
 ### Compact Width
-
-![[HomeScreen.jpg|200]]   ![[DetailScreen.jpg|200]]   ![[Search.jpg|200]]
+<p style=float:left">
+  <img src="HomeScreen.jpg" width="200" />
+  <img src="DetailScreen.jpg" width="200" />
+  <img src="Search.jpg" width="200" />
+</p>
 
 ### Medium Width
-
-![[Extended_NoBookChosen.jpg|400]]
-
-![[Extended_DetailScreen.jpg|400]]
-
-![[Extended_Search.jpg|400]]
+<p style=float:left">
+  <img src="Extended_NoBookChosen.jpg" width="400" />
+  <img src="Extended_DetailScreen.jpg" width="400" />
+  <img src="Extended_Search.jpg|400" width="400" />
+</p>
 
 ## Features
 This app has two screen, Book Home Screen, where user can search for books and choose them. If a book is chosen Book Detail Screen appears, where user can see books detailed info
