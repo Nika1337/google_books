@@ -17,12 +17,11 @@ import com.example.googlebooks.model.ui.Book
 import com.example.googlebooks.model.ui.DetailedBook
 import com.example.googlebooks.ui.utils.BooksCurrentScreen
 import kotlinx.coroutines.launch
-import kotlinx.serialization.ExperimentalSerializationApi
 import retrofit2.HttpException
 import java.io.IOException
 
 
-private const val DEFAULT_QUERY = "football"
+private const val DEFAULT_QUERY = "android compose"
 
 sealed interface GoogleBooksUiState {
     data class Success(val books: List<Book>) : GoogleBooksUiState
@@ -89,7 +88,6 @@ class GoogleBooksViewModel(
         }
     }
 
-    @OptIn(ExperimentalSerializationApi::class)
     private fun chooseBook(id: String) {
         viewModelScope.launch {
             currentChosenBook = try {

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -190,6 +191,7 @@ fun ThumbnailAndInfo(
             modifier = Modifier
                 .fillMaxHeight()
                 .weight(1f)
+                .aspectRatio(0.75f)
         )
         Spacer(
             modifier = Modifier
@@ -217,12 +219,12 @@ fun Thumbnail(
         AsyncImage(
             model = thumbnailSrc,
             contentDescription = stringResource(id = R.string.book_thumbnail),
-            contentScale = ContentScale.FillHeight,
+            contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxHeight(),
             placeholder = painterResource(id = R.drawable.loading_img),
             error = painterResource(id = R.drawable.ic_broken_image)
         )
-    }
+   }
 }
 
 @Composable
