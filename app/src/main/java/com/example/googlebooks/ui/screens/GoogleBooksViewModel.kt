@@ -17,6 +17,7 @@ import com.example.googlebooks.model.ui.Book
 import com.example.googlebooks.model.ui.DetailedBook
 import com.example.googlebooks.ui.utils.BooksCurrentScreen
 import kotlinx.coroutines.launch
+import kotlinx.serialization.ExperimentalSerializationApi
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -79,15 +80,16 @@ class GoogleBooksViewModel(
                     books = books
                 )
             } catch (e: IOException) {
-                Log.d("exception", e.toString())
+                Log.d("getBooks_IOException", e.toString())
                 GoogleBooksUiState.Error
             } catch (e: HttpException) {
-                Log.d("exception", e.toString())
+                Log.d("getBooks_HttpException", e.toString())
                 GoogleBooksUiState.Error
             }
         }
     }
 
+    @OptIn(ExperimentalSerializationApi::class)
     private fun chooseBook(id: String) {
         viewModelScope.launch {
             currentChosenBook = try {
@@ -95,8 +97,10 @@ class GoogleBooksViewModel(
                 currentScreen = BooksCurrentScreen.DETAIL
                 book
             } catch (e: IOException) {
+                Log.d("chooseBook_IOException", e.toString())
                 null
             } catch (e: HttpException) {
+                Log.d("chooseBook_HttpException", e.toString())
                 null
             }
         }

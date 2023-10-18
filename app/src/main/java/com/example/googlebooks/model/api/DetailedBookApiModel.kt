@@ -10,21 +10,21 @@ data class DetailedBookApiModel(
     @SerialName("volumeInfo")
     val volumeInfo: DetailedVolumeInfoApiModel,
     @SerialName("saleInfo")
-    val saleInfo: SaleInfoApiModel,
-    )
+    val saleInfo: SaleInfoApiModel
+)
 
 @Serializable
 data class DetailedVolumeInfoApiModel(
     @SerialName("title")
-    val title: String,
+    val title: String = "N/A",
     @SerialName("authors")
     val authors: List<String>? = null,
     @SerialName("publishedDate")
-    val publishedDate: String,
+    val publishedDate: String = "N/A",
     @SerialName("description")
     val description: String? = null,
     @SerialName("pageCount")
-    val pageCount: Int,
+    val pageCount: Int? = null ,
     @SerialName("mainCategory")
     val mainCategory: String? = null,
     @SerialName("categories")
@@ -34,7 +34,7 @@ data class DetailedVolumeInfoApiModel(
     @SerialName("ratingsCount")
     val ratingsCount: Int? = null,
     @SerialName("language")
-    val language: String,
+    val language: String = "N/A",
     @SerialName("imageLinks")
     val imageLinks: DetailedImageLinksApiModel? = null
 )
@@ -42,9 +42,9 @@ data class DetailedVolumeInfoApiModel(
 @Serializable
 data class DetailedImageLinksApiModel(
     @SerialName("smallThumbnail")
-    val smallThumbnail: String,
+    val smallThumbnail: String = "",
     @SerialName("thumbnail")
-    private val thumbnail: String
+    private val thumbnail: String = ""
 ) {
     val httpsThumbnail : String
         get() = thumbnail.replace("http", "https")
@@ -53,9 +53,9 @@ data class DetailedImageLinksApiModel(
 @Serializable
 data class SaleInfoApiModel(
     @SerialName("country")
-    val country: String,
+    val country: String = "N/A",
     @SerialName("saleability")
-    val saleability: String,
+    val saleability: String = "N/A",
     @SerialName("isEbook")
-    val isEbook: Boolean
+    val isEbook: Boolean = false
 )

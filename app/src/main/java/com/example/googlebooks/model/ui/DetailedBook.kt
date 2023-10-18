@@ -5,7 +5,7 @@ data class DetailedBook(
     val title: String,
     val author: String?,
     val description: String?,
-    val pageCount: Int,
+    val pageCount: Int?,
     val mainCategory: String?,
     val averageRating: Double?,
     val thumbnailSrc: String

@@ -90,7 +90,7 @@ fun BookDetailsScreen(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
                 .padding(it)
-                .padding(horizontal = 32.dp, vertical = 16.dp)
+                .padding(horizontal = 16.dp, vertical = 16.dp)
         )
     }
 }
@@ -177,7 +177,7 @@ fun BookDetails(
 fun ThumbnailAndInfo(
     thumbnailSrc: String,
     rating: Double?,
-    pageCount: Int,
+    pageCount: Int?,
     mainCategory: String?,
     modifier: Modifier = Modifier
 ) {
@@ -198,7 +198,9 @@ fun ThumbnailAndInfo(
         InfoColumn(
             rating = rating,
             pageCount = pageCount,
-            mainCategory = mainCategory
+            mainCategory = mainCategory,
+            modifier = Modifier
+                .weight(1f)
         )
     }
 }
@@ -215,7 +217,7 @@ fun Thumbnail(
         AsyncImage(
             model = thumbnailSrc,
             contentDescription = stringResource(id = R.string.book_thumbnail),
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.FillHeight,
             modifier = Modifier.fillMaxHeight(),
             placeholder = painterResource(id = R.drawable.loading_img),
             error = painterResource(id = R.drawable.ic_broken_image)
@@ -226,7 +228,7 @@ fun Thumbnail(
 @Composable
 fun InfoColumn(
     rating: Double?,
-    pageCount: Int,
+    pageCount: Int?,
     mainCategory: String?,
     modifier: Modifier = Modifier
 ) {
@@ -245,13 +247,13 @@ fun InfoColumn(
         InfoCard(
             imageVector = Icons.Outlined.Info,
             title = "Page Count",
-            text = pageCount.toString(),
+            text = pageCount?.toString() ?: "N/A",
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(12.dp))
         InfoCard(
             imageVector = Icons.Outlined.AccountBox,
-            title = "Main Category",
+            title = "Category",
             text = mainCategory ?: "N/A",
             modifier = Modifier.fillMaxWidth()
         )

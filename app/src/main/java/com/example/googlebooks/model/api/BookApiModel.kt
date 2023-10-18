@@ -17,7 +17,7 @@ data class BookApiModel(
 @Serializable
 data class VolumeInfoApiModel(
     @SerialName("title")
-    val title: String,
+    val title: String = "N/A",
     @SerialName("imageLinks")
     val imageLinksApiModel: ImageLinksApiModel?
 )
@@ -25,6 +25,6 @@ data class VolumeInfoApiModel(
 @Serializable
 data class ImageLinksApiModel(
     @SerialName("thumbnail")
-    val thumbnail: String
+    val thumbnail: String = ""
 ) {
 }
