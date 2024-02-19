@@ -9,19 +9,23 @@ Main Takeaways of this app:
 - Adaptive layout for mobile, tablets and foldables
 - Domain Layer
 - Architecture
+- Dependency Injection
+- Unit Testing
 
 ## Screenshots
 ### Compact Width
-
-![[HomeScreen.jpg|200]]   ![[DetailScreen.jpg|200]]   ![[Search.jpg|200]]
+<p style=float:left">
+  <img src="screenshots/HomeScreen.jpg" width="200" />
+  <img src="screenshots/Search.jpg" width="200" />
+  <img src="screenshots/DetailScreen.jpg" width="200" />
+</p>
 
 ### Medium Width
-
-![[Extended_NoBookChosen.jpg|400]]
-
-![[Extended_DetailScreen.jpg|400]]
-
-![[Extended_Search.jpg|400]]
+<p style=float:left">
+  <img src="screenshots/Extended_NoBookChosen.jpg" width="400" />
+  <img src="screenshots/Extended_DetailScreen.jpg" width="400" />
+  <img src="screenshots/Extended_Search.jpg" width="400" />
+</p>
 
 ## Features
 This app has two screen, Book Home Screen, where user can search for books and choose them. If a book is chosen Book Detail Screen appears, where user can see books detailed info
@@ -34,6 +38,7 @@ Package [`com.example.googlebooks`](app/src/main/java/com/example/googlebooks)
 [`MainActivity`](app/src/main/java/com/example/googlebooks/MainActivity.kt) is the application's entry point. Only dynamic navigation is used. [GoogleBooksHomeScreen](app/src/main/java/com/example/googlebooks/ui/screens/books/GoogleBooksHomeScreen.kt) is the default screen. all screens share the same viewmodel [GoogleBooksViewModel](app/src/main/java/com/example/googlebooks/ui/screens/GoogleBooksViewModel.kt).
 
 ### Need to Revisit
+- Response of API consists of description, which is in html, which needs to be parsed and displayed properly
 - Better UI could be designed, my designing skills are not the best
 - Paging could be added
 - BookDetailScreen could show my details, or another screen could be added for details
