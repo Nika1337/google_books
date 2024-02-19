@@ -58,6 +58,7 @@ class GoogleBooksViewModel(
             is GoogleBooksEvent.DetailScreenOnNavigateUp -> {
                 currentScreen = BooksCurrentScreen.LIST
             }
+            else -> {}
         }
     }
 

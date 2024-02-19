@@ -12,7 +12,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 
-class GoogleBooksViewmodelTest {
+class GoogleBooksViewModelTest {
     @get:Rule
     val testDispatcher = TestDispatcherRule()
 

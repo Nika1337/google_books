@@ -30,7 +30,6 @@ fun GoogleBooksApp(windowSize: WindowWidthSizeClass) {
             BooksContentType.LIST_ONLY
         }
     }
-
     if (booksContentType == BooksContentType.LIST_ONLY) {
         if (viewModel.currentScreen == BooksCurrentScreen.LIST) {
             GoogleBooksHomeScreen(

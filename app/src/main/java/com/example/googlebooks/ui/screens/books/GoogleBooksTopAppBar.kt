@@ -137,7 +137,7 @@ fun SearchAppBar(
                 .fillMaxWidth(),
             placeholder = {
                 Text(
-                    text = "Search here...",
+                    text = stringResource(R.string.search_here),
                     fontWeight = FontWeight.Normal
                 )
             },

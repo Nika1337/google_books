@@ -11,4 +11,5 @@
     <string name="anonymous">Anonymous</string>
     <string name="book_thumbnail">Book Thumbnail</string>
     <string name="no_book_selected">No Book Selected</string>
+    <string name="search_here">Search here...</string>
 </resources>
